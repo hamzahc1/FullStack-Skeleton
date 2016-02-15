@@ -4,22 +4,22 @@
   "description": "Build a skeleton for  MEAN stack app",
   "author": "Hamzah & Michael",
   "contributors": [
-    "Michael Cheung", "Hamzah Chaudhary"
+    "Michael Cheung",
+    "Hamzah Chaudhary"
   ],
-  "scripts": {
-  },
-  "repository": {
-  },
+  "scripts": {},
+  "repository": {},
   "license": "MIT",
   "dependencies": {
+    "angular-route": "^1.5.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.4.3",
+    "cors": "^2.7.1",
     "express": "^4.4.5",
     "jwt-simple": "^0.2.0",
     "mongoose": "^4.1.0",
     "morgan": "^1.1.1",
     "q": "^1.4.1",
-    "request": "^2.36.0",
-    "cors": "^2.7.1"
+    "request": "^2.36.0"
   }
 }

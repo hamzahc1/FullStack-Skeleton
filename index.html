@@ -1,23 +1,27 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>MEN stack test</title>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <title>MEAN stack test</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
    <script type='text/javascript' src='./client/app.js'></script>
+    <script src="getList/getListController.js"></script>
+    <script src="getList/postController.js"></script>
+    <script src="services/service.js"></script>
   </head>
-  <body>
+  <body ng-app='tasker'>
     <h1>Testing out Full Stack</h1>
 
     <form>
-      <input id="inputField" type='text'>
-      <button type='button' class='postButton'>Post</button>
+      <input id="inputField" ng-model='newItem' type='text'>
+      <button type="submit" ng-controller = 'postController' ng-click= "addItem(newItem)" class="postButton"><a href="#/post">Post</a></button>
     </form>
-      <button type='button' class='getButton'>Get All Items</button>
-    <ul>
-    </ul>
+      <button ng-click='getItems()' type='button' class='getButton'><a href="#/items">Get All Items</a></button>
+
+    <div ng-view></div>
   </body>
 
-</html> -->
+</html>
 
-To be refactored to Angular
+<!-- To be refactored to Angular -->

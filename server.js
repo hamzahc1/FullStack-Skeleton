@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 // app.use(cors);
 app.use(bodyParser.json());
 app.use('/client', express.static( __dirname + '/client'));
+app.use('/services', express.static( __dirname + '/services'));
+app.use('/getList', express.static( __dirname + '/getList'));
 
 //MONGOOSE STUFF
 var mongoose = require('mongoose');
@@ -22,18 +24,20 @@ app.route('/').
   }).
   get(function (req, res) {
   	res.sendFile(__dirname + '/index.html');
-  }).
-  post(function (req, res) {
-    db.create({task: req.body.todo}, function(error, newItem){
-      if(error){
-        console.log("ERRRRRROR");
-        return res.send(404);
-      } else {
-        console.log('COMPLETED!');
-        res.send(200, newItem);
-      }
-    });
   });
+
+app.post('/post', function (req, res) {
+  console.log('IN THE FUCKING POST!!!!', req.body);
+  db.create({task: req.body.task}, function(error, newItem){
+    if(error){
+      console.log("ERRRRRROR");
+      return res.send(404);
+    } else {
+      console.log('COMPLETED!');
+      res.send(200, newItem);
+    }
+  });
+});
 
   app.get('/items', function(req, res) {
     db.find({},{task: true, _id: false}, function(error, allItems) {

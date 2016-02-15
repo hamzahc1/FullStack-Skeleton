@@ -1,37 +1,18 @@
-$(document).ready(function() {
-
-  $(document).on('click', '.postButton', function() {
-    var newItem = $('#inputField').val();
-    $.ajax({
-      method: 'POST',
-      url: '/',
-      data: JSON.stringify({todo : newItem}),
-      contentType: 'application/json',
-      success: function(data){
-        console.log('DATA IS', data);
-      },
-      error: function(error){
-        console.error('THIS IS AN ERROR:', error);
-      }
-    });
-  });
-
-  $(document).on('click', '.getButton', function() {
-    $.ajax({
-      method: 'GET',
-      url: '/items',
-      contentType: 'application/json',
-      success: function(data){
-        $('ul').empty();
-        data.forEach(function(item) {
-          $('ul').append('<li>'+item.task+'</li>');
-        });
-        console.log('GET BUTTON DATA IS', data);
-
-      },
-      error: function(error){
-        console.error('THIS IS AN ERROR:', error);
-      }
-    });
-  });
+angular.module('tasker', [
+  'tasker.ajax',
+  'tasker.list',
+  'tasker.post',
+  'ngRoute'
+])
+.config(function ($routeProvider, $httpProvider) {
+  $routeProvider
+    .when('/items', {
+      templateUrl: '../getList/getList.html',
+      controller: 'getListController'
+    })
+    .when('/post', {
+      templateUrl: '../getList/postItem.html',
+      controller: 'postController'
+    })
+    .otherwise({redirectTo: '/'});
 });
