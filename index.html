@@ -13,9 +13,9 @@
   <body ng-app='tasker'>
     <h1>Testing out Full Stack</h1>
 
-    <form>
+    <form ng-controller = 'postController'>
       <input id="inputField" ng-model='newItem' type='text'>
-      <button type="submit" ng-controller = 'postController' ng-click= "addItem(newItem)" class="postButton"><a href="#/post">Post</a></button>
+      <button type="submit" ng-click= "addItem(newItem)" class="postButton"><a href="#/post">Post</a></button>
     </form>
       <button ng-click='getItems()' type='button' class='getButton'><a href="#/items">Get All Items</a></button>
 
