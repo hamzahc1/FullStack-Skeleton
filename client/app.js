@@ -11,7 +11,7 @@ $(document).ready(function() {
         console.log('DATA IS', data);
       },
       error: function(error){
-        console.error('THIS IS A FUCKING ERROR:', error);
+        console.error('THIS IS AN ERROR:', error);
       }
     });
   });
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
       },
       error: function(error){
-        console.error('THIS IS A FUCKING ERROR:', error);
+        console.error('THIS IS AN ERROR:', error);
       }
     });
   });
