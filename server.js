@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use('/client', express.static( __dirname + '/client'));
 
-//MONGOOSE STUFF
+//MONGOOSE
 var mongoose = require('mongoose');
 var db = require('./itemSchema.js');
 mongoose.connect('mongodb://localhost/michael');
@@ -26,7 +26,7 @@ app.route('/').
   post(function (req, res) {
     db.create({task: req.body.todo}, function(error, newItem){
       if(error){
-        console.log("ERRRRRROR");
+        console.log("ERROR");
         return res.send(404);
       } else {
         console.log('COMPLETED!');
@@ -38,11 +38,11 @@ app.route('/').
   app.get('/items', function(req, res) {
     db.find({},{task: true, _id: false}, function(error, allItems) {
       if(error) {
-        console.log('GET ERRRRORR');
+        console.log('GET ERROR');
         return res.send(404);
       } else {
         console.log('GET COMPLETED');
-        console.log('ALL ITEMS: ------>', allItems);
+        // console.log('ALL ITEMS: ------>', allItems);
         res.send(200, allItems);
       }
     });
